@@ -12,19 +12,14 @@
       [:h1
        {:class
         "text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"}
-       "Data to enrich your online business"]
-      [:p
-       {:class "mt-6 text-lg leading-8 text-gray-600"}
-       "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua."]
+       "Kopfdaten importieren"]
       [:div
        {:class "mt-10 flex items-center justify-center gap-x-6"}
        [:form
-        {:hx-encoding "multipart/form-data",
-         :hx-post "/upload-headers",
-         :_ "on htmx:xhr:progress(loaded, total) set #progress.value to (loaded/total)*100"}
+        {:hx-encoding "multipart/form-data"
+         :hx-post "/upload-headers"}
         [:input {:type "file", :name "file"}]
-        [:button.inline-block.shrink-0.rounded-md.border.border-blue-600.bg-blue-600.px-12.py-3.text-sm.font-medium.text-white.transition.hover:bg-transparent.hover:text-blue-600.focus:outline-none.focus:ring.active:text-blue-500.dark:hover:bg-blue-700.dark:hover:text-white "Upload"]
-        [:progress {:id "progress", :value "0", :max "100"}]]]]]
+        [:button.inline-block.shrink-0.rounded-md.border.border-blue-600.bg-blue-600.px-12.py-3.text-sm.font-medium.text-white.transition.hover:bg-transparent.hover:text-blue-600.focus:outline-none.focus:ring.active:text-blue-500.dark:hover:bg-blue-700.dark:hover:text-white "Upload"]]]]]
     [:div
      {:class
       "absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]",
