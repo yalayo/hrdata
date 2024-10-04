@@ -3,8 +3,7 @@
             [io.pedestal.http.body-params :as body-params]
             [io.pedestal.http.ring-middlewares :as ring-mw]
             [ring.util.response :as response]
-            [clojure.data.csv :as csv]
-            [clojure.java.io :as io]
+            [app.csv-importer.interface :as csv-importer]
             [app.html.index :as index]
             [app.html.dashboard :as dashboard]
             [app.html.upload-headers :as upload-headers]))
@@ -51,13 +50,7 @@
             (let [multipart-data (:multipart-params (-> context :request))
                   file (get multipart-data "file")
                   file-input-stream (:tempfile file)]        
-              (with-open [reader (io/reader file-input-stream)]
-                (let [csv-data (csv/read-csv reader)]
-                    ;; Do something with the CSV data
-                  (println csv-data)
-                  (assoc context :response {:status 200
-                   :body (str "Successfully uploaded and parsed " (count csv-data) " rows")}))))
-            )})
+              (assoc context :response (respond-with-params upload-headers/show-headers (csv-importer/process-file file-input-stream)))))})
 
 (def routes
   #{["/" :get index-page-handler :route-name ::index-page]
