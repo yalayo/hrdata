@@ -19,6 +19,7 @@
 
 		;; Bricks
         poly/csv-importer {:local/root "../../components/csv-importer"}
+        poly/user {:local/root "../../components/user"}
 		poly/html {:local/root "../../components/html"}
 		poly/web {:local/root "../../components/web"}
 		poly/server {:local/root "../../bases/server"}}

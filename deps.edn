@@ -1,6 +1,7 @@
 {:aliases {:dev {:extra-paths ["development/src"
                                "bases/server/src"
                                "components/csv-importer/src"
+                               "components/user/src"
                                "components/html/src"
                                "components/web/src"
                                "components/web/resources"]
@@ -24,6 +25,7 @@
                               org.clojure/data.csv {:mvn/version "1.1.0"}}}
            :test {:extra-paths ["bases/server/test"
                                 "components/csv-importer/test"
+                                "components/user/test"
                                 "components/html/test"
                                 "components/web/test"]
                   :extra-deps {polylith-kaocha/kaocha-wrapper
