@@ -12,7 +12,7 @@
                             :host "development-db"
                             :dbname "hrdata" 
                             :username "user" 
-                            :password "hrdata@2024"
+                            :password "volley@2024"
                             :dataSourceProperties {:socketTimeout 30}}))
 
 (defn create-account [email password]
