@@ -32,4 +32,4 @@ pom.xml.asc
 **/.config/*
 
 # Other
-docker/*
+docker/postgresql/*
