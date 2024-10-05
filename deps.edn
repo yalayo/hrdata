@@ -1,5 +1,6 @@
 {:aliases {:dev {:extra-paths ["development/src"
                                "bases/server/src"
+                               "bases/server/resources"
                                "components/csv-importer/src"
                                "components/user/src"
                                "components/html/src"
