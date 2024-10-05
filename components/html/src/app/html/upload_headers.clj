@@ -6,20 +6,16 @@
    [:div
     {:class "relative isolate px-6 pt-14 lg:px-8"} 
     [:div
-     {:class "mx-auto max-w-2xl py-32 sm:py-48 lg:py-56"}
+     {:class "mx-auto max-w-2xl"}
      [:div
       {:class "text-center"}
-      [:h1
-       {:class
-        "text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"}
-       "Kopfdaten importieren"]
-      [:div
-       {:class "mt-10 flex items-center justify-center gap-x-6"}
+      [:h1 {:class "text-balance text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"} "Kopfdaten importieren"]
+      [:div {:id "upload-file" :class "mt-10 flex items-center justify-center gap-x-6"}
        [:form
         {:hx-encoding "multipart/form-data"
          :hx-post "/upload-headers"
          :hx-target "this"
-         :hx-swap "outerHTML"}
+         :hx-swap "#upload-file"}
         [:input {:type "file", :name "file"}]
         [:button.inline-block.shrink-0.rounded-md.border.border-blue-600.bg-blue-600.px-12.py-3.text-sm.font-medium.text-white.transition.hover:bg-transparent.hover:text-blue-600.focus:outline-none.focus:ring.active:text-blue-500.dark:hover:bg-blue-700.dark:hover:text-white "Upload"]]]]]
     [:div
@@ -57,14 +53,13 @@
 
 (defn show-headers [data]
   [:div
-   {:class "mt-10 flex items-center justify-center gap-x-6"}
-   [:form
-    {:hx-encoding "multipart/form-data"
-     :hx-post "/upload-headers"
-     :hx-target "this"
-     :hx-swap "outerHTML"}
-    [:input {:type "file", :name "file"}]
-    [:button.inline-block.shrink-0.rounded-md.border.border-blue-600.bg-blue-600.px-12.py-3.text-sm.font-medium.text-white.transition.hover:bg-transparent.hover:text-blue-600.focus:outline-none.focus:ring.active:text-blue-500.dark:hover:bg-blue-700.dark:hover:text-white "Upload"]]
-   [:main
-    [:div {:class "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 divide-y divide-gray-100"}
-     (map show-item data)]]])
+   [:div {:id "upload-file" :class "mt-10 flex items-center justify-center gap-x-6"}
+    [:form
+     {:hx-encoding "multipart/form-data"
+      :hx-post "/upload-headers"
+      :hx-target "this"
+      :hx-swap "#upload-file"}
+     [:input {:type "file", :name "file"}]
+     [:button.inline-block.shrink-0.rounded-md.border.border-blue-600.bg-blue-600.px-12.py-3.text-sm.font-medium.text-white.transition.hover:bg-transparent.hover:text-blue-600.focus:outline-none.focus:ring.active:text-blue-500.dark:hover:bg-blue-700.dark:hover:text-white "Upload"]]]
+   [:div {:class "mt-10 flex items-center justify-center gap-x-6"}
+    (map show-item data)]])
